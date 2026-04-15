@@ -39,6 +39,7 @@ public class UsuarioService implements org.springframework.security.core.userdet
         return org.springframework.security.core.userdetails.User
                 .withUsername(usuario.getEmail())
                 .password(usuario.getSenha())
+                .roles("USER")
                 .build();
     }
 

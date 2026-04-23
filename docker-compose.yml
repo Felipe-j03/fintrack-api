@@ -1,0 +1,32 @@
+
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: fintrack-db
+    environment:
+      POSTGRES_DB: fintrack
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 251298
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  api:
+    build: src/main/java/com/fintrack/fintrack_api
+    container_name: fintrack-api
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/fintrack
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 251298
+      JWT_SECRET: 3f8b2c1d4e5a6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d
+      JWT_EXPIRATION: 86400000
+    ports:
+      - "8080:8080"
+
+
+volumes:
+  postgres_data:

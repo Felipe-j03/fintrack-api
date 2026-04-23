@@ -7,4 +7,4 @@ COPY . .
 RUN chmod +x mvnw
 RUN ./mvnw clean package -DskipTests
 
-ENTRYPOINT ["java","-jar","target/*.jar"]
+ENTRYPOINT ["sh", "-c", "java -jar target/*.jar"]

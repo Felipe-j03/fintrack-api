@@ -29,21 +29,8 @@ git clone https://github.com/Felipe-j03/fintrack-api.git
 cd fintrack-api
 ```
 
-Configure o banco no `application.properties`:
-```properties
-spring.datasource.url=jdbc:postgresql://localhost:5432/fintrack
-spring.datasource.username=seu_usuario
-spring.datasource.password=sua_senha
-```
 
-```bash
-# Rode a aplicação
-./mvnw spring-boot:run
-```
-
-A API estará disponível em `http://localhost:8080`
-
-Documentação Swagger: `http://localhost:8080/swagger-ui/index.html`
+A API pode ser testada pelo Swagger UI, que estará disponível em `https://fintrack-api-ain0.onrender.com/swagger-ui/index.html`
 
 ## 🔐 Autenticação
 
